@@ -1,0 +1,122 @@
+name: Auto Update and Publish Weekly
+
+on:
+  schedule:
+    - cron: '0 2 * * 1'
+  workflow_dispatch:
+
+jobs:
+  check-and-update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Setup Rust
+      uses: dtolnay/rust-toolchain@stable
+      with:
+        toolchain: stable
+
+    - name: Cache cargo registry
+      uses: actions/cache@v3
+      with:
+        path: |
+          ~/.cargo/registry
+          ~/.cargo/git
+          target
+        key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+
+    - name: Get submodule commit
+      id: current-commit
+      run: |
+        cd vscode-material-icon-theme
+        echo "commit=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
+
+    - name: Get latest commit from upstream main
+      id: latest-commit
+      run: |
+        LATEST_COMMIT=$(curl -s https://api.github.com/repos/material-extensions/vscode-material-icon-theme/git/refs/heads/main | jq -r '.object.sha')
+        echo "commit=$LATEST_COMMIT" >> $GITHUB_OUTPUT
+        echo "Latest commit: $LATEST_COMMIT"
+
+    - name: Check if update needed
+      id: check-update
+      run: |
+        if [ "${{ steps.current-commit.outputs.commit }}" != "${{ steps.latest-commit.outputs.commit }}" ]; then
+          echo "update_needed=true" >> $GITHUB_OUTPUT
+          echo "New commit found: ${{ steps.latest-commit.outputs.commit }}"
+        else
+          echo "update_needed=false" >> $GITHUB_OUTPUT
+          echo "No update needed"
+        fi
+
+    - name: Update submodule
+      if: steps.check-update.outputs.update_needed == 'true'
+      run: |
+        cd vscode-material-icon-theme
+        git fetch origin
+        git checkout ${{ steps.latest-commit.outputs.commit }}
+        cd ..
+        git add vscode-material-icon-theme
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -m "Update vscode-material-icon-theme to ${{ steps.latest-commit.outputs.commit }}"
+
+    - name: Build project
+      if: steps.check-update.outputs.update_needed == 'true'
+      run: cargo build --verbose
+
+    - name: Run tests
+      if: steps.check-update.outputs.update_needed == 'true'
+      run: cargo test --verbose
+
+    - name: Get current version
+      if: steps.check-update.outputs.update_needed == 'true'
+      id: current-version
+      run: |
+        VERSION=$(grep '^version = ' Cargo.toml | head -1 | sed 's/version = "//' | sed 's/"//')
+        echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+    - name: Bump version
+      if: steps.check-update.outputs.update_needed == 'true'
+      id: bump-version
+      run: |
+        CURRENT_VERSION="${{ steps.current-version.outputs.version }}"
+        
+        IFS='.' read -ra VERSION_PARTS <<< "$CURRENT_VERSION"
+        MAJOR=${VERSION_PARTS[0]}
+        MINOR=${VERSION_PARTS[1]}
+        PATCH=${VERSION_PARTS[2]}
+        
+        NEW_PATCH=$((PATCH + 1))
+        NEW_VERSION="$MAJOR.$MINOR.$NEW_PATCH"
+        
+        sed -i "s/^version = \"$CURRENT_VERSION\"/version = \"$NEW_VERSION\"/" Cargo.toml
+        
+        echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
+        echo "Updated version from $CURRENT_VERSION to $NEW_VERSION"
+
+    - name: Commit all updated files
+      if: steps.check-update.outputs.update_needed == 'true'
+      run: |
+        git add .
+        git commit -m "Bump version to ${{ steps.bump-version.outputs.new_version }} and update generated files"
+
+    - name: Push changes
+      if: steps.check-update.outputs.update_needed == 'true'
+      run: |
+        git push origin main
+
+    - name: Publish to crates.io
+      if: steps.check-update.outputs.update_needed == 'true'
+      env:
+        CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
+      run: |
+        cargo publish --token $CARGO_REGISTRY_TOKEN
