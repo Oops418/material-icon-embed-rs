@@ -8,7 +8,6 @@ readme = "README.md"
 repository = "https://github.com/Oops418/material-icon-embed-rs"
 keywords = ["material-icons", "embed", "rust", "icons", "vs-code"]
 license = "MIT"
-license-file = "LICENSE"
 
 [dependencies]
 rust-embed = "8.7.2"
