@@ -2431,6 +2431,7 @@ impl MaterialIconFile {
             ".yarnrc" => Some(MaterialIconFile::Yarn),
             ".yarnrc.yaml" => Some(MaterialIconFile::Yarn),
             ".yarnrc.yml" => Some(MaterialIconFile::Yarn),
+            "CMakePresets.json" => Some(MaterialIconFile::Cmake),
             "CNAME" => Some(MaterialIconFile::Http),
             "Caddyfile" => Some(MaterialIconFile::Caddy),
             "OWNERS" => Some(MaterialIconFile::Codeowners),
