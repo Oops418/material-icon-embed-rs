@@ -2238,6 +2238,7 @@ impl MaterialIconFile {
             ".env.qa.local" => Some(MaterialIconFile::Tune),
             ".env.sample" => Some(MaterialIconFile::Tune),
             ".env.schema" => Some(MaterialIconFile::Tune),
+            ".env.sentry-build-plugin" => Some(MaterialIconFile::Sentry),
             ".env.stage" => Some(MaterialIconFile::Tune),
             ".env.staging" => Some(MaterialIconFile::Tune),
             ".env.staging.local" => Some(MaterialIconFile::Tune),
