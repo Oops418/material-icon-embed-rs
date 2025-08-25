@@ -976,6 +976,7 @@ impl MaterialIconFolder {
             "messages" => Some(MaterialIconFolder::FolderMessages),
             "messaging" => Some(MaterialIconFolder::FolderMessages),
             "meta" => Some(MaterialIconFolder::FolderMeta),
+            "metadata" => Some(MaterialIconFolder::FolderMeta),
             "middleware" => Some(MaterialIconFolder::FolderMiddleware),
             "middlewares" => Some(MaterialIconFolder::FolderMiddleware),
             "mint" => Some(MaterialIconFolder::FolderLinux),
