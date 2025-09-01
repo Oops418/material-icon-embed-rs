@@ -56,6 +56,7 @@ pub enum MaterialIconFolder {
     FolderCore,
     FolderCoverage,
     FolderCss,
+    FolderCursor,
     FolderCustom,
     FolderCypress,
     FolderDart,
@@ -307,6 +308,7 @@ impl MaterialIconFolder {
             MaterialIconFolder::FolderCore => "icons/folder-core.svg".to_string(),
             MaterialIconFolder::FolderCoverage => "icons/folder-coverage.svg".to_string(),
             MaterialIconFolder::FolderCss => "icons/folder-css.svg".to_string(),
+            MaterialIconFolder::FolderCursor => "icons/folder-cursor.svg".to_string(),
             MaterialIconFolder::FolderCustom => "icons/folder-custom.svg".to_string(),
             MaterialIconFolder::FolderCypress => "icons/folder-cypress.svg".to_string(),
             MaterialIconFolder::FolderDart => "icons/folder-dart.svg".to_string(),
@@ -507,6 +509,7 @@ impl MaterialIconFolder {
     pub fn from_folder_name(name: &str) -> Option<Self> {
         match name {
             ".claude" => Some(MaterialIconFolder::FolderClaude),
+            ".cursor" => Some(MaterialIconFolder::FolderCursor),
             "@types" => Some(MaterialIconFolder::FolderTypescript),
             "DS_Store" => Some(MaterialIconFolder::FolderMacos),
             "META-INF" => Some(MaterialIconFolder::FolderConfig),
@@ -1421,6 +1424,7 @@ impl fmt::Display for MaterialIconFolder {
             MaterialIconFolder::FolderCore => write!(f, "folder-core"),
             MaterialIconFolder::FolderCoverage => write!(f, "folder-coverage"),
             MaterialIconFolder::FolderCss => write!(f, "folder-css"),
+            MaterialIconFolder::FolderCursor => write!(f, "folder-cursor"),
             MaterialIconFolder::FolderCustom => write!(f, "folder-custom"),
             MaterialIconFolder::FolderCypress => write!(f, "folder-cypress"),
             MaterialIconFolder::FolderDart => write!(f, "folder-dart"),
