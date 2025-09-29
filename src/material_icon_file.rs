@@ -2957,6 +2957,7 @@ impl MaterialIconFile {
             "maven.config" => Some(MaterialIconFile::Maven),
             "mercurial.ini" => Some(MaterialIconFile::Mercurial),
             "meson.build" => Some(MaterialIconFile::Meson),
+            "meson.options" => Some(MaterialIconFile::Meson),
             "meson_options.txt" => Some(MaterialIconFile::Meson),
             "metro.config.cjs" => Some(MaterialIconFile::Metro),
             "metro.config.js" => Some(MaterialIconFile::Metro),
