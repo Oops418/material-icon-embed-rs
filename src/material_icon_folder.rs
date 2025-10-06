@@ -1329,6 +1329,8 @@ impl MaterialIconFolder {
             "validations" => Some(MaterialIconFolder::FolderRules),
             "validator" => Some(MaterialIconFolder::FolderRules),
             "validators" => Some(MaterialIconFolder::FolderRules),
+            "vector" => Some(MaterialIconFolder::FolderSvg),
+            "vectors" => Some(MaterialIconFolder::FolderSvg),
             "vendor" => Some(MaterialIconFolder::FolderLib),
             "vendors" => Some(MaterialIconFolder::FolderLib),
             "venv" => Some(MaterialIconFolder::FolderEnvironment),
