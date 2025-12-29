@@ -2080,6 +2080,7 @@ impl MaterialIconFile {
             "tcsh" => Some(MaterialIconFile::Console),
             "templ" => Some(MaterialIconFile::Templ),
             "template" => Some(MaterialIconFile::Template),
+            "terraformignore" => Some(MaterialIconFile::Terraform),
             "tesc" => Some(MaterialIconFile::Shader),
             "tesc.glsl" => Some(MaterialIconFile::Shader),
             "tese" => Some(MaterialIconFile::Shader),

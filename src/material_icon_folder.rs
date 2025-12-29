@@ -681,6 +681,8 @@ impl MaterialIconFolder {
             "common" => Some(MaterialIconFolder::FolderShared),
             "compiled" => Some(MaterialIconFolder::FolderDist),
             "components" => Some(MaterialIconFolder::FolderVue),
+            "composable" => Some(MaterialIconFolder::FolderFunctions),
+            "composables" => Some(MaterialIconFolder::FolderFunctions),
             "concept" => Some(MaterialIconFolder::FolderMock),
             "concepts" => Some(MaterialIconFolder::FolderMock),
             "conf" => Some(MaterialIconFolder::FolderConfig),
