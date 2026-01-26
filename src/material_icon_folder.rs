@@ -1098,6 +1098,7 @@ impl MaterialIconFolder {
             "others" => Some(MaterialIconFolder::FolderOther),
             "out" => Some(MaterialIconFolder::FolderDist),
             "output" => Some(MaterialIconFolder::FolderDist),
+            "outputs" => Some(MaterialIconFolder::FolderDist),
             "package" => Some(MaterialIconFolder::FolderPackages),
             "packages" => Some(MaterialIconFolder::FolderPackages),
             "pact" => Some(MaterialIconFolder::FolderContract),

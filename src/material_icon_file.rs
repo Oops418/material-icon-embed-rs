@@ -3290,6 +3290,7 @@ impl MaterialIconFile {
             "unocss.config.mjs" => Some(MaterialIconFile::Unocss),
             "unocss.config.mts" => Some(MaterialIconFile::Unocss),
             "unocss.config.ts" => Some(MaterialIconFile::Unocss),
+            "uv.lock" => Some(MaterialIconFile::Uv),
             "uv.toml" => Some(MaterialIconFile::Uv),
             "v.mod" => Some(MaterialIconFile::Vlang),
             "vagrantfile" => Some(MaterialIconFile::Vagrant),
