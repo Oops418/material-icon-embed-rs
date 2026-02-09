@@ -2031,6 +2031,7 @@ impl MaterialIconFile {
             "stories.svelte" => Some(MaterialIconFile::Storybook),
             "stories.ts" => Some(MaterialIconFile::Storybook),
             "stories.tsx" => Some(MaterialIconFile::Storybook),
+            "stories.vue" => Some(MaterialIconFile::Storybook),
             "story.js" => Some(MaterialIconFile::Storybook),
             "story.jsx" => Some(MaterialIconFile::Storybook),
             "story.mdx" => Some(MaterialIconFile::Storybook),
