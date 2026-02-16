@@ -3037,6 +3037,7 @@ impl MaterialIconFile {
             "openapi.json" => Some(MaterialIconFile::Openapi),
             "openapi.yaml" => Some(MaterialIconFile::Openapi),
             "openapi.yml" => Some(MaterialIconFile::Openapi),
+            "oxlint.config.ts" => Some(MaterialIconFile::Oxc),
             "package-lock.json" => Some(MaterialIconFile::Nodejs),
             "package.json" => Some(MaterialIconFile::Nodejs),
             "packship.config.js" => Some(MaterialIconFile::Packship),

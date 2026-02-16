@@ -610,6 +610,7 @@ impl MaterialIconFolder {
             "batches" => Some(MaterialIconFolder::FolderBatch),
             "batchs" => Some(MaterialIconFolder::FolderBatch),
             "bench" => Some(MaterialIconFolder::FolderBenchmark),
+            "benches" => Some(MaterialIconFolder::FolderBenchmark),
             "benchmark" => Some(MaterialIconFolder::FolderBenchmark),
             "benchmarks" => Some(MaterialIconFolder::FolderBenchmark),
             "bibliographies" => Some(MaterialIconFolder::FolderBibliography),
