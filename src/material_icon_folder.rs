@@ -1182,6 +1182,7 @@ impl MaterialIconFolder {
             "protos" => Some(MaterialIconFolder::FolderProto),
             "provider" => Some(MaterialIconFolder::FolderController),
             "providers" => Some(MaterialIconFolder::FolderController),
+            "proxy" => Some(MaterialIconFolder::FolderPublic),
             "ps" => Some(MaterialIconFolder::FolderPowershell),
             "ps1" => Some(MaterialIconFolder::FolderPowershell),
             "ps4" => Some(MaterialIconFolder::FolderConsole),
