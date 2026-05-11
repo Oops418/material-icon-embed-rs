@@ -203,6 +203,7 @@ pub enum MaterialIconFolder {
     FolderQueue,
     FolderR,
     FolderReactComponents,
+    FolderRedis,
     FolderReduxActions,
     FolderReduxReducer,
     FolderReduxSelector,
@@ -279,6 +280,7 @@ pub enum MaterialIconFolder {
     FolderWordpress,
     FolderYarn,
     FolderZeabur,
+    FolderZed,
 }
 
 impl MaterialIconFolder {
@@ -483,6 +485,7 @@ impl MaterialIconFolder {
             MaterialIconFolder::FolderQueue => "icons/folder-queue.svg".to_string(),
             MaterialIconFolder::FolderR => "icons/folder-r.svg".to_string(),
             MaterialIconFolder::FolderReactComponents => "icons/folder-react-components.svg".to_string(),
+            MaterialIconFolder::FolderRedis => "icons/folder-redis.svg".to_string(),
             MaterialIconFolder::FolderReduxActions => "icons/folder-redux-actions.svg".to_string(),
             MaterialIconFolder::FolderReduxReducer => "icons/folder-redux-reducer.svg".to_string(),
             MaterialIconFolder::FolderReduxSelector => "icons/folder-redux-selector.svg".to_string(),
@@ -559,6 +562,7 @@ impl MaterialIconFolder {
             MaterialIconFolder::FolderWordpress => "icons/folder-wordpress.svg".to_string(),
             MaterialIconFolder::FolderYarn => "icons/folder-yarn.svg".to_string(),
             MaterialIconFolder::FolderZeabur => "icons/folder-zeabur.svg".to_string(),
+            MaterialIconFolder::FolderZed => "icons/folder-zed.svg".to_string(),
         }
     }
 
@@ -757,6 +761,7 @@ impl MaterialIconFolder {
             "coverage" => Some(MaterialIconFolder::FolderCoverage),
             "crash" => Some(MaterialIconFolder::FolderError),
             "crashes" => Some(MaterialIconFolder::FolderError),
+            "crates" => Some(MaterialIconFolder::FolderLib),
             "css" => Some(MaterialIconFolder::FolderCss),
             "cts" => Some(MaterialIconFolder::FolderTypescript),
             "cubit" => Some(MaterialIconFolder::FolderBloc),
@@ -1247,6 +1252,9 @@ impl MaterialIconFolder {
             "react-components" => Some(MaterialIconFolder::FolderReactComponents),
             "reactjs" => Some(MaterialIconFolder::FolderReactComponents),
             "recordings" => Some(MaterialIconFolder::FolderAudio),
+            "redis" => Some(MaterialIconFolder::FolderRedis),
+            "redis-db" => Some(MaterialIconFolder::FolderRedis),
+            "redislabs" => Some(MaterialIconFolder::FolderRedis),
             "reducer" => Some(MaterialIconFolder::FolderReduxReducer),
             "reducers" => Some(MaterialIconFolder::FolderReduxReducer),
             "redux" => Some(MaterialIconFolder::FolderReduxToolkit),
@@ -1503,8 +1511,10 @@ impl MaterialIconFolder {
             "www" => Some(MaterialIconFolder::FolderPublic),
             "wwwroot" => Some(MaterialIconFolder::FolderPublic),
             "xbox" => Some(MaterialIconFolder::FolderConsole),
+            "xtask" => Some(MaterialIconFolder::FolderScripts),
             "yarn" => Some(MaterialIconFolder::FolderYarn),
             "zeabur" => Some(MaterialIconFolder::FolderZeabur),
+            "zed" => Some(MaterialIconFolder::FolderZed),
             _ => None,
         }
     }
@@ -1712,6 +1722,7 @@ impl fmt::Display for MaterialIconFolder {
             MaterialIconFolder::FolderQueue => write!(f, "folder-queue"),
             MaterialIconFolder::FolderR => write!(f, "folder-r"),
             MaterialIconFolder::FolderReactComponents => write!(f, "folder-react-components"),
+            MaterialIconFolder::FolderRedis => write!(f, "folder-redis"),
             MaterialIconFolder::FolderReduxActions => write!(f, "folder-redux-actions"),
             MaterialIconFolder::FolderReduxReducer => write!(f, "folder-redux-reducer"),
             MaterialIconFolder::FolderReduxSelector => write!(f, "folder-redux-selector"),
@@ -1788,6 +1799,7 @@ impl fmt::Display for MaterialIconFolder {
             MaterialIconFolder::FolderWordpress => write!(f, "folder-wordpress"),
             MaterialIconFolder::FolderYarn => write!(f, "folder-yarn"),
             MaterialIconFolder::FolderZeabur => write!(f, "folder-zeabur"),
+            MaterialIconFolder::FolderZed => write!(f, "folder-zed"),
         }
     }
 }
